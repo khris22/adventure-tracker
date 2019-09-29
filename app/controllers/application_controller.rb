@@ -17,4 +17,15 @@ class ApplicationController < Sinatra::Base
     erb :"/user/signup"
   end
 
+  post '/signup' do
+    user = User.new(params)
+    # user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    if user.save
+      # redirect to /username/adventures - username needs to be slug & interpolated
+      redirect "#{user}"
+  end
+
+  get '/login' do
+  end
+
 end
