@@ -1,5 +1,6 @@
 require './config/environment'
 
+
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -7,10 +8,11 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "app_session"
-    use Rack::Flash
+    register Sinatra::Flash
   end
 
   get '/' do
+    flash[:alert] = "Hooray, Flash is working!"
     erb :welcome
   end
 
