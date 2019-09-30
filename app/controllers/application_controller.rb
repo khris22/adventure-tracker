@@ -22,7 +22,8 @@ class ApplicationController < Sinatra::Base
     user = User.new(params)
     # user = User.new(username: params[:username], email: params[:email], password: params[:password])
     if user.save
-      redirect "/welcome"
+      redirect '/adventures'
+      # "/welcome"
       # redirect to login page, message your account has been created please log in
     else
       redirect '/signup'
