@@ -23,10 +23,18 @@ class ApplicationController < Sinatra::Base
     if user.save
       # redirect to /username/adventures - username needs to be slug & interpolated
       redirect "#{user}"
+    end
   end
 
-  get '/login' do
-    erb :"/user/login"
-  end
+  post '/login' do
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect '/adventures'
+    else
+      redirect '/'
+      #put error message "Please try again"    
+    end
 
+    
 end

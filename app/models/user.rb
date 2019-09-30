@@ -2,14 +2,14 @@ class User < ActiveRecord::Base
     has_many :adventures
     has_secure_password
 
-    # must have validations
-    # validates :email, presence: { message: "Please enter your email." }
+    validates :email, presence: { message: "Please enter your email." }
     
-    validates (:email,
-                :presence   => {:message => "Email can't be blank"},
-                :uniqueness => {:message => 'Email must be unique'},
-                :email      => {:message => 'Email must be valid'})
-    # https://www.rubydoc.info/gems/active-model-email-validator/1.0/EmailValidator
+    #not working:
+    # validates(:email,
+    #             :presence   => {:message => "Email can't be blank"},
+    #             :uniqueness => {:message => 'Email must be unique'},
+    #             :email      => {:message => 'Email must be valid'})
+   
 
     validates :username, uniqueness: {
       message: ->(object, data) do
@@ -17,5 +17,11 @@ class User < ActiveRecord::Base
       end
     }
 
-    validates :password, presence: true #length: { in: 6..20, }
+    validates :password, presence: true 
 end
+
+ # https://www.rubydoc.info/gems/active-model-email-validator/1.0/EmailValidator
+ #length: { in: 6..20, }
+
+     # must have validations
+    # validates :email, presence: { message: "Please enter your email." }
