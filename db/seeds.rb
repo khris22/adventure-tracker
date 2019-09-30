@@ -11,5 +11,23 @@ activity: "Hiking & Camping",
 companion: "Khris",
 created_at: "",
 updated_at: "",
-user_id: )
+user_id: steve.id)
 
+
+redrock = Adventure.create( 
+title: "Red Rock!!!" , 
+location: "Las Vegas", 
+activity: "Hiking", 
+companion: "Isay, Ariel",
+created_at: "",
+updated_at: "",
+user_id: khris.id)
+
+rocky_mountain = Adventure.create( 
+title: "Rocky Mountain National Park" , 
+location: "CO", 
+activity: "stargazing", 
+companion: "",
+created_at: "",
+updated_at: "",
+user_id: boris.id)

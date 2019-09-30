@@ -10,6 +10,15 @@ class AdventuresController < ApplicationController
         end
     end
 
+    get '/adventures/index' do
+        if logged_in?
+            @user = current_user
+            
+        else
+            redirect '/'
+        end
+    end
+
 end
 
   #error message here "Please log in to view your adventures

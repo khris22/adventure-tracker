@@ -12,7 +12,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    flash[:alert] = "Hooray, Flash is working!"
     erb :welcome
   end
 
