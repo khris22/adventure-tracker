@@ -7,6 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "app_session"
+    use Rack::Flash
   end
 
   get '/' do
@@ -21,19 +22,23 @@ class ApplicationController < Sinatra::Base
     user = User.new(params)
     # user = User.new(username: params[:username], email: params[:email], password: params[:password])
     if user.save
-      # redirect to /username/adventures - username needs to be slug & interpolated
-      redirect "#{user}"
+      redirect "/welcome"
+      # redirect to login page, message your account has been created please log in
+    else
+      redirect '/signup'
+      #Please try again (make sure all the details have been filled)
     end
   end
 
   post '/login' do
     user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect '/adventures'
-    else
-      redirect '/'
-      #put error message "Please try again"    
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        redirect '/adventures'
+      else
+        redirect '/'
+        #put error message "Please try again"
+      end    
     end
 
     helpers do
@@ -44,5 +49,6 @@ class ApplicationController < Sinatra::Base
       def current_user
         User.find_by_id(session[:user_id])
       end
-      
+    end
+
 end
