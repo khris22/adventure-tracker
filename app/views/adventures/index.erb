@@ -20,12 +20,18 @@
 <input type="text" name="notes" id="notes" value= ""><br>
 
 <input type="submit" name="submit" id="submit" value="Submit">
-</form>
+</form><br><br>
 
 <!-- show list of adventures with 
 title.name as link to view each one
 to edit and delete
  -->
+<h2>Here are your past adventures!</h2>
+<p> You have a total of <%= @user.adventures.length %> adventure! Keep Exploring!!!</p>
 
+<!-- put <ul></ul> here -->
+<% @user.adventures.each do |adventure| %>
+<h3><a href="/adventures/<%= adventure.id %>"><%= adventure.title %></h3></a><h4></h4><%=adventure.location%></h4>
+<% end %>
 
  <!-- log out button -->
