@@ -38,6 +38,9 @@ class AdventuresController < ApplicationController
         end
     end
 
+    #make edit route
+
+    #make delete each adventure route
  
 
 end
