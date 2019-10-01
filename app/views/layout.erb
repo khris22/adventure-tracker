@@ -15,7 +15,12 @@
   </head>
   <body>
     <div class="wrapper">
-    
+    <!-- Logout Link -->
+    <% if logged_in? %>
+    <a href="/logout">Logout</a>
+    <% end %>
+
+    <!-- Flash Messages -->
         <% flash.keys.each do |type| %>
           <div data-alert class="flash <%= type %> alert-box radius">
             <%= flash[type] %>
