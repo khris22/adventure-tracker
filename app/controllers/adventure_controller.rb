@@ -4,7 +4,7 @@ class AdventuresController < ApplicationController
         if logged_in?
             # binding.pry
             @user = current_user
-            erb :"/adventure/index"
+            erb :"/adventures/index"
         else
             redirect '/'
           
