@@ -11,4 +11,9 @@ Notes: <%= @adventure.notes %><br>
 <input type="submit" name="edit" id="edit" value="Edit">
 </form>
 
+<form method="post" action="/adventures/<%= @adventure.id %>">
+<input id="hidden" type="hidden" name="_method" value="Delete">
+<input type="submit" name="delete" id="delete" value="Delete">
+</form>
+
 <%= @adventure.user.username %><br>
