@@ -11,6 +11,21 @@ class AdventuresController < ApplicationController
         end
     end
 
+    post '/adventures' do
+        if logged_in?
+            if params[:title].empty? && params[:location].empty?
+                redirect '/adventures'
+            else
+                @adventure = current_user.adventures.build(params)
+                if @adventure.save
+                    redirect "/adventures/#{@adventure.id}"
+                else
+                    redirect '/adventures'
+                end
+            end
+        end
+    end
+
     # get '/adventures/index' do
     #     if logged_in?
     #         @user = current_user

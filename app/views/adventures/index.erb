@@ -1,10 +1,31 @@
 <h2>Welcome, <%= @user.username %> to your adventure page!</h2>
 
 <!-- create a form here to put in new adventure?? -->
+<h3>What's your new adventure?</h3>
+
+<form action='/adventures' method="post">
+<label for="title">Title:</label>
+<input type="text" name="title" id="title" value= ""><br>
+
+<label for="location">location:</label>
+<input type="text" name="location" id="location" value= ""><br>
+
+<label for="activity">activity:</label>
+<input type="text" name="activity" id="activity" value= ""><br>
+
+<label for="companion">companion:</label>
+<input type="text" name="companion" id="companion" value= ""><br>
+
+<label for="notes">notes:</label>
+<input type="text" name="notes" id="notes" value= ""><br>
+
+<input type="submit" name="submit" id="submit" value="Submit">
+</form>
 
 <!-- show list of adventures with 
 title.name as link to view each one
 to edit and delete
  -->
+
 
  <!-- log out button -->
