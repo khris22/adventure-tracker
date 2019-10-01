@@ -9,6 +9,7 @@ title: "Grand Canyon Adventure" ,
 location: "Arizona", 
 activity: "Hiking & Camping", 
 companion: "Khris",
+notes: "must have 4x4, bring sunscreen",
 user_id: steve.id)
 
 
@@ -17,6 +18,7 @@ title: "Red Rock!!!" ,
 location: "Las Vegas", 
 activity: "Hiking", 
 companion: "Isay, Ariel",
+notes: "Ice Box Canyon has a great waterfall!"
 user_id: khris.id)
 
 rocky_mountain = Adventure.create( 
@@ -24,4 +26,5 @@ title: "Rocky Mountain National Park" ,
 location: "CO", 
 activity: "stargazing", 
 companion: "",
+notes: "High altitude! Remember to bring jacket!"
 user_id: boris.id)
