@@ -23,6 +23,7 @@ class ApplicationController < Sinatra::Base
     user = User.new(params)
     # user = User.new(username: params[:username], email: params[:email], password: params[:password])
     if user.save
+      session[:user_id] = user.id
       redirect '/adventures'
       # "/welcome"
       # redirect to login page, message your account has been created please log in
@@ -49,7 +50,7 @@ class ApplicationController < Sinatra::Base
       end
 
       def current_user
-        User.find_by_id(session[:user_id])
+        User.find_by(session[:user_id])
       end
     end
 
