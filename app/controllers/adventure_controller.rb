@@ -4,21 +4,21 @@ class AdventuresController < ApplicationController
         if logged_in?
             # binding.pry
             @user = current_user
-            erb :"/adventures/index"
+            erb :"/adventure/index"
         else
             redirect '/'
           
         end
     end
 
-    get '/adventures/index' do
-        if logged_in?
-            @user = current_user
-            erb :"/adventures/index"
-        else
-            redirect '/'
-        end
-    end
+    # get '/adventures/index' do
+    #     if logged_in?
+    #         @user = current_user
+    #         erb :"/adventures/index"
+    #     else
+    #         redirect '/'
+    #     end
+    # end
 
 end
 
