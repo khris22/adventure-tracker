@@ -19,3 +19,4 @@ Notes: <%= @adventure.notes %><br>
 <a href="/adventures">Homepage</a>
 
 <%= @adventure.user.username %><br>
+<%= @adventure.created_at.strftime("%A, %B %d, %Y at %I:%M %p EST") %>
