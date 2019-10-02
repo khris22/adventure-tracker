@@ -41,6 +41,19 @@ class AdventuresController < ApplicationController
     end
 
     #make edit route
+    get '/adventures/:id/edit' do
+        if logged_in?
+            @adventure = Adventure.find_by(id: params[:id])
+            if @adventure && @adventure.user == current_user
+                # binding.pry
+                erb :"/adventures/edit"
+            else
+                redirect :"/adventures/#{@adventure.id}"
+            end
+        else
+            redirect '/adventures'
+        end
+    end
 
     #make delete each adventure route
  
