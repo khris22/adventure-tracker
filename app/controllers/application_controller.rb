@@ -15,17 +15,6 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  
-  post '/login' do
-    user = User.find_by(username: params[:username])
-      if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
-        redirect '/adventures'
-      else
-        redirect '/'
-        #put error message "Please try again"
-      end    
-    end
 
     helpers do
       def logged_in?
