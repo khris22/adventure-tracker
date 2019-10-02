@@ -48,7 +48,8 @@ class AdventuresController < ApplicationController
                 # binding.pry
                 erb :"/adventures/edit"
             else
-                redirect "/adventures/#{@adventure.id}"
+                redirect "/adventures"
+                #not your post!!!
             end
         else
             redirect '/adventures'
@@ -89,7 +90,8 @@ class AdventuresController < ApplicationController
                 redirect to "/adventures"
             else
                 #You are not authorized to delete this page.
-                redirect to "/adventures/#{@adventure.id}"
+                #not your post!!!
+                redirect to "/adventures"
             end
         else
             redirect '/'
