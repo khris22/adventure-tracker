@@ -80,7 +80,22 @@ class AdventuresController < ApplicationController
     
     #make delete each adventure route
  
+    delete '/adventures/:id' do
+        if logged_in?
+            @adventure = Adventure.find_by(id: params[:id])
+            if @adventure && @adventure.user == current_user
+                @adventure.delete
+                #Adventure: adventure.title has been deleted
+                redirect to "/adventures"
+            else
+                #You are not authorized to delete this page.
+                redirect to "/adventures/#{@adventure.id}"
+            end
+        else
+            redirect '/'
+            #You must log in to delete your page
+        end
+    end
+
 
 end
-
-  #error message here "Please log in to view your adventures
