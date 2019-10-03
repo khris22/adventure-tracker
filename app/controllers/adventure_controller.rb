@@ -32,6 +32,7 @@ class AdventuresController < ApplicationController
             else
                 @adventure = current_user.adventures.build(title: params[:title], location: params[:location], activity: params[:activity], companion: params[:companion], notes: params[:notes])
                 if @adventure.save
+                    flash[:message] = "Your new adventure has been saved"
                     redirect "/adventures/#{@adventure.id}"
                 else
                     redirect '/adventures'

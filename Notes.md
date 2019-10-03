@@ -6,3 +6,13 @@ password length - maxlength="8"
 
 
 Date.today.strftime("%A, %B %d, %Y")
+
+Add new features:
+View all the adventures:
+<ul>
+   <%  Adventure.all.each do |adventure| %>
+   <%=  adventure.title %><br>
+   <%=  adventure.location %>
+   <%= adventure.user.username %>
+   <% end %>
+  </ul>
