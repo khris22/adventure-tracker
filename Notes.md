@@ -1,3 +1,11 @@
+# Custom User Validations    
+    # validates :username, presence: {message: "Username cannot be blank"}
+    # validates :username, uniqueness: {message: "This username is already taken!"}
+
+    # validates :email, presence: {message: "Please enter your email."}
+    # validates :email, uniqueness: {message: "This email has already been used for another account!"}
+
+
 to add styling to flash messages:
 https://foundation.zurb.com/sites/docs/v/5.5.3/components/alert_boxes.html
 
