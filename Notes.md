@@ -5,13 +5,29 @@
     # validates :email, presence: {message: "Please enter your email."}
     # validates :email, uniqueness: {message: "This email has already been used for another account!"}
 
+# Custom Email Validations
+     # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+     # constant built into URI in the standard ruby library (from stackoverflow)
+     # validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
-to add styling to flash messages:
+# To add styling to flash messages:
 https://foundation.zurb.com/sites/docs/v/5.5.3/components/alert_boxes.html
 
 To add for later:
 password length - maxlength="8"
 
+# User_Controller Notes
+    #user = User.new(username: params[:username], email: params[:email], password: params[:password])
+# User_Controller Error Messages
+            # @user.errors.map do |keys, error|
+            #   @errors = error
+            # end
+
+            # this is working
+            # all_errors = []
+            # @user.errors.messages.each do |attr, error_message|
+            #   all_errors << error_message[0]
+            # end
 
 Date.today.strftime("%A, %B %d, %Y")
 
