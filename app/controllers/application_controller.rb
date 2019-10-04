@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     # flash[:message] = "testing out flash messages"
-    erb :welcome
+    erb :"/welcome"
   end
 
 

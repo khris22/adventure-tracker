@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect '/adventures'
       else
-        flash[:error] = "Your username and password should match!"
+        flash[:message] = "Your username and password should match!"
         redirect '/'
         #put error message "Please try again"
       end    

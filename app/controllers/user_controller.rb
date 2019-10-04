@@ -13,13 +13,13 @@ class UsersController < ApplicationController
           # "/welcome"
           # redirect to login page, message your account has been created please log in
         else
-            binding.pry
+            # binding.pry
             # @user.errors.map do |keys, error|
             #   @errors = error
             # end
-
-          @users.errors.full_messages.map do |err|
-            err
+          errors = []
+          @user.errors.full_messages.map do |err|
+            errors << err
           end
 
             # this is working
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
             # @user.errors.messages.each do |attr, error_message|
             #   all_errors << error_message[0]
             # end
-            # flash[:message] = all_errors
+            flash[:message] = errors
 
             #  flash[:message] = "EEERRRRRROOOORRRR"
           redirect '/signup'

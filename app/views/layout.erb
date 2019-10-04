@@ -20,14 +20,17 @@
     <a href="/logout">Logout</a>
     <% end %>
 
+    <!-- testing  --> 
+
     <!-- Flash Messages -->
-        <% flash.keys.each do |type| %>
+            <% flash.keys.each do |type| %>
           <div data-alert class="flash <%= type %> alert-box radius">
             <%= flash[type] %>
             <!-- for closing the flash? Must fix!!! -->
             <a href="#" class="close">&times;</a>
           </div>
         <% end %>
+
 
         <%= yield %>
 
