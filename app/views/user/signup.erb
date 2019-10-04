@@ -4,13 +4,13 @@
 
 <form action="/user" method="post">
     <label for="username">Username:</label>
-    <input type="text" name="username" value= "<%= @user ? @user.username : "" %>"/>
+    <input type="text" name="username" value= ""/>
 
     <label for="email">Email:</label>
-    <input type="text" name="email" value= "<%= @user ? @user.email : "" %>"/>
+    <input type="text" name="email" value= ""/>
 
     <label for="password">Password:</label>
-    <input type="password" name="password" value= "<%= @user ? @user.password : "" %>"/>
+    <input type="password" name="password" value= ""/>
 
     <input type="submit" value="Signup">
 </form>
