@@ -1,5 +1,7 @@
+<div class="show page">
+<center>
 <h2><%= @adventure.title %></h2>
-<h3><%= @adventure.location %></h3>
+<h4>Location: <%= @adventure.location %></h4>
 
 <p>
 Companion: <%= @adventure.companion %><br>
@@ -14,9 +16,9 @@ Notes: <%= @adventure.notes %><br>
 <form method="post" action="/adventures/<%= @adventure.id %>">
 <input id="hidden" type="hidden" name="_method" value="Delete">
 <input type="submit" name="delete" id="delete" value="Delete">
-</form>
+</form><br>
 
-<a href="/adventures">Homepage</a>
-
-<%= @adventure.user.username %><br>
+<p>Go back to <%= @adventure.user.username %>'s <a href="/adventures">Homepage</a></p><br>
 <%= @adventure.created_at.strftime("%A, %B %d, %Y at %I:%M %p %Z ") %>
+</center>
+</div>

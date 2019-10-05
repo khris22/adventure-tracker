@@ -1,37 +1,38 @@
-<h2>Welcome, <%= @user.username %> to your adventure page!</h2>
+<div class="index">
+<h2>Welcome <t style="color: blue;"><%= @user.username %></t> to your adventure page!</h2>
 
-<!-- create a form here to put in new adventure?? -->
-<h3>What's your new adventure?</h3>
-
+<!--form to create new adventure -->
+<center><h3>What's your new adventure?</h3>
+<div class="index form">
 <form action='/adventures' method="post">
 <label for="title">Title:</label>
 <input type="text" name="title" id="title" value= ""><br>
 
-<label for="location">location:</label>
+<label for="location">Location:</label>
 <input type="text" name="location" id="location" value= ""><br>
 
-<label for="activity">activity:</label>
+<label for="activity">Activity:</label>
 <input type="text" name="activity" id="activity" value= ""><br>
 
-<label for="companion">companion:</label>
+<label for="companion">Companion:</label>
 <input type="text" name="companion" id="companion" value= ""><br>
 
-<label for="notes">notes:</label>
-<input type="text" name="notes" id="notes" value= ""><br>
+<label for="notes">Notes:</label>
+<textarea type="text" name="notes" id="notes" value= ""></textarea><br><br>
 
 <input type="submit" name="submit" id="submit" value="Submit">
-</form><br><br>
+</form></center><br><br>
+</div>
 
-<!-- show list of adventures with 
-title.name as link to view each one
-to edit and delete
- -->
+<!-- list of each user's adventures with link to view details -->
 <h2>Here are your past adventures!</h2>
-<p> You have a total of <%= @user.adventures.length %> adventures! Keep Exploring!!!</p>
+<center>
+<p> You have a total of <t style="color: blue;"><%= @user.adventures.length %></t> adventures! Keep Exploring!!!</p>
 
-<!-- put <ul></ul> here -->
-<% @user.adventures.each do |adventure| %>
-<h3><a href="/adventures/<%= adventure.id %>"><%= adventure.title %></h3></a><h4></h4><%=adventure.location%></h4>
+<ul><% @user.adventures.each do |adventure| %>
+<li><h3><a href="/adventures/<%= adventure.id %>"><%= adventure.title %></h3></a><h4></h4><%=adventure.location%></h4></li>
 <% end %>
+</ul>
+</center>
 
- <!-- log out button -->
+ </div>

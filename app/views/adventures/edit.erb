@@ -1,4 +1,5 @@
-<h2>Edit Page Testing </h2>
+<div class="edit page">
+<h2>Edit: <%= @adventure.title %> </h2>
 
 <form method="post" action="/adventures/<%= @adventure.id %>">
 <input id="hidden" type="hidden" name="_method" value="patch">
@@ -6,22 +7,21 @@
 <label for="title">Title:</label>
 <input type="text" name="title" id="title" value= "<%= @adventure.title %>"><br>
 
-<label for="location">location:</label>
+<label for="location">Location:</label>
 <input type="text" name="location" id="location" value= "<%= @adventure.location %>"><br>
 
-<label for="activity">activity:</label>
+<label for="activity">Activity:</label>
 <input type="text" name="activity" id="activity" value= "<%= @adventure.activity %>"><br>
 
-<label for="companion">companion:</label>
+<label for="companion">Companion:</label>
 <input type="text" name="companion" id="companion" value= "<%= @adventure.companion %>"><br>
 
-<label for="notes">notes:</label>
+<label for="notes">Notes:</label>
 <input type="text" name="notes" id="notes" value= "<%= @adventure.notes %>"><br><br>
-
 
 <input type="submit" name="submit" id="submit" value="Update <%= @adventure.title %> Adventure"><br><br>
 </form>
 
+<p>Go back to <%= @adventure.user.username %>'s <a href="/adventures">Homepage</a></p>
 
-<a href="/adventures">Homepage</a>
-<%= @adventure.user.username %>
+</div>
