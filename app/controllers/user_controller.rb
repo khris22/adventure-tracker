@@ -15,7 +15,6 @@ class UsersController < ApplicationController
             errors << err
         end
             flash[:message] = errors.join(". ")
-            # binding.pry
             #flash[:message] = "ERROR: Please make sure all the details have been filled correctly."
             redirect '/signup'
         end

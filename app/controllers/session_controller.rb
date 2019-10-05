@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
       else
         flash[:message] = "Your username and password should match!"
         redirect '/'
-        #put error message "Please try again"
       end    
     end
 

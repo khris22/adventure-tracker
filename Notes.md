@@ -8,7 +8,9 @@
 # Custom Email Validations
      # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
      # constant built into URI in the standard ruby library (from stackoverflow)
-     # validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+     # validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+     # validates_format_of :email, :with => /@/ 
+     # validates_format_of :email, format: /@/
 
 # To add styling to flash messages:
 https://foundation.zurb.com/sites/docs/v/5.5.3/components/alert_boxes.html
@@ -18,6 +20,7 @@ password length - maxlength="8"
 
 # User_Controller Notes
     #user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    
 # User_Controller Error Messages
             # @user.errors.map do |keys, error|
             #   @errors = error
@@ -29,9 +32,13 @@ password length - maxlength="8"
             #   all_errors << error_message[0]
             # end
 
-Date.today.strftime("%A, %B %d, %Y")
+# Adventure_Controller Notes
+    # @adventure = Adventure.find_by(id: params[:id])
+    # @adventure = current_user.adventures
+    # @adventure = @adventures.user.find_by(params[:id])
+    # @adventure = Adventure.find_by(params[:id])
 
-Add new features:
+# Add new features:
 View all the adventures:
 <ul>
    <%  Adventure.all.each do |adventure| %>
@@ -41,7 +48,7 @@ View all the adventures:
    <% end %>
   </ul>
 
-
+# Flash errors hash on layout.erb
      <% if flash[:message] %>
         <div class="<%= flash[:type] %>">
           <ul>

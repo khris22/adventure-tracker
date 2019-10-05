@@ -2,9 +2,7 @@ class AdventuresController < ApplicationController
    
     get '/adventures' do
         if logged_in?
-            # binding.pry
-            @user = current_user
-            # @adventure = current_user.adventures
+            @user = current_user       
             erb :"/adventures/index"
         else
             redirect '/'
@@ -16,8 +14,6 @@ class AdventuresController < ApplicationController
         if logged_in?
             @user = current_user
             @adventure = Adventure.find_by(id: params[:id])
-            # @adventure = @adventures.user.find_by(params[:id])
-            # @adventure = Adventure.find_by(params[:id])
             erb :"/adventures/show"
         else
             redirect '/adventures'
@@ -42,17 +38,14 @@ class AdventuresController < ApplicationController
         end
     end
 
-    #make edit route
     get '/adventures/:id/edit' do
         if logged_in?
             @adventure = Adventure.find_by(id: params[:id])
             if @adventure && @adventure.user == current_user
-                # binding.pry
                 erb :"/adventures/edit"
             else
                 flash[:error] = "You are NOT authorized to edit/delete if it's not your adventure"
                 redirect "/adventures"
-                #not your post!!!
             end
         else
             redirect '/adventures'
@@ -64,51 +57,37 @@ class AdventuresController < ApplicationController
         if logged_in?
             if params[:title].empty? && params[:location].empty?
                 flash[:error] = "Title and Location cannot be empty!"
-                #You have to fill in the title & location
                 redirect "/adventures/#{@adventure.id}/edit"
-            else
-            # @adventure = Adventure.find_by(id: params[:id])
-            if @adventure && @adventure.user == current_user
-                # binding.pry
-                @adventure.update(title: params[:title], location: params[:location], activity: params[:activity], companion: params[:companion], notes: params[:notes])
-                flash[:message] = "Your adventure has been updated!!!"
-                redirect "/adventures/#{@adventure.id}"
-                # flash "Your page has been updated!"
-
-            else
-                flash[:error] = "You are NOT authorized to edit/delete this adventure!"
-                redirect '/adventures'
-                # flash You cannot edit another person's adventure
+            else      
+                if @adventure && @adventure.user == current_user
+                    @adventure.update(title: params[:title], location: params[:location], activity: params[:activity], companion: params[:companion], notes: params[:notes])
+                    flash[:message] = "Your adventure has been updated!!!"
+                    redirect "/adventures/#{@adventure.id}"
+                else
+                    flash[:error] = "You are NOT authorized to edit/delete this adventure!"
+                    redirect '/adventures'
+                end
             end
-        end
             flash[:error] = "Please log in"
-            #flash You need to be logged in to edit this page
             redirect to '/adventures'
         end
     end
-    
-    #make delete each adventure route
  
     delete '/adventures/:id' do
         if logged_in?
             @adventure = Adventure.find_by(id: params[:id])
             if @adventure && @adventure.user == current_user
                 @adventure.delete
-                #Adventure: adventure.title has been deleted
-                flash[:message] = "Your adventure has been deleted!"
+                flash[:message] = "Your adventure has been successfully deleted!"
                 redirect to "/adventures"
             else
-                flash[:error] = "You are authorized to edit/delete this adventure!"
-                #You are not authorized to delete this page.
-                #not your post!!!
+                flash[:error] = "You are NOT authorized to edit/delete this adventure!"
                 redirect to "/adventures"
             end
         else
             flash[:error] = "Please log in"
             redirect '/'
-            #You must log in to delete your page
         end
     end
-
 
 end
