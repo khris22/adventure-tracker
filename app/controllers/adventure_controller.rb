@@ -11,10 +11,13 @@ class AdventuresController < ApplicationController
     end
 
     get '/adventures/:id' do
+    # get '/adventures/:slug' do
         if logged_in?
             @user = current_user
             @adventure = Adventure.find_by(id: params[:id])
+            # @adventure = Adventure.find_by_slug(params[:slug])
             erb :"/adventures/show"
+            # binding.pry
         else
             redirect '/adventures'
         end
@@ -31,6 +34,7 @@ class AdventuresController < ApplicationController
                 if @adventure.save
                     flash[:message] = "Your new adventure has been saved"
                     redirect "/adventures/#{@adventure.id}"
+                    # redirect "/adventures/#{@adventure.title.slug}"
                 else
                     redirect '/adventures'
                 end

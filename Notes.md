@@ -39,8 +39,11 @@ password length - maxlength="8"
     # @adventure = Adventure.find_by(params[:id])
 
 # Adventure Model (slug title)
+  #tested it on binding.pry and it's working:
   #title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   from stackoverflow: downcase makes it lowercase. The strip makes sure there is no leading or trailing whitespace. The first gsub replaces spaces with hyphens. The second gsub removes all non-alpha non-dash non-underscore characters (note that this set is very close to \W but includes the dash as well, which is why it's spelled out here).
+
+
 
 # Add new features:
 View all the adventures:
