@@ -8,5 +8,6 @@ use Rack::MethodOverride
 use UsersController
 use AdventuresController
 use SessionsController 
+use WishlistsController
 
 run ApplicationController
