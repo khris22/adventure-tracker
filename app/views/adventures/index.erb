@@ -36,4 +36,14 @@
 </ul>
 </center>
 
+<h2>Wishlist</h2>
+<center>
+<p> You have a total of <t style="color: blue;"><%= @user.wishlists.length %></t> adventures in your wishlist! Get going!</p>
+
+<ul><% @user.wishlists.each do |wishlist| %>
+<li><h3><a href="/wishlists/<%= wishlist.id %>"><%= wishlist.title %></h3></a><h4></h4><%=wishlist.location%></h4></li>
+<% end %>
+</ul>
+</center>
+
  </div>
