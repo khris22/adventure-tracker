@@ -1,0 +1,26 @@
+<h2>WISHLIST</h2>
+
+<div class="show page">
+<center>
+<h2><%= @wishlist.title %></h2>
+<h4>Location: <%= @wishlist.location %></h4>
+
+<p>
+Companion: <%= @wishlist.companion %><br>
+Activity: <%= @wishlist.activity %><br>
+Notes: <%= @wishlist.notes %><br>
+</p>
+
+<form method="get" action="/wishlists/<%= @wishlist.id %>/edit">
+<input type="submit" name="edit" id="edit" value="Edit">
+</form>
+
+<form method="post" action="/wishlists/<%= @wishlist.id %>">
+<input id="hidden" type="hidden" name="_method" value="Delete">
+<input type="submit" name="delete" id="delete" value="Delete">
+</form><br>
+
+<p>Go back to <%= @wishlist.user.username %>'s <a href="/adventures">Homepage</a></p><br>
+<%= @wishlist.created_at.strftime("%A, %B %d, %Y at %I:%M %p %Z ") %>
+</center>
+</div>
