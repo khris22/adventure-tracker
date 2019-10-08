@@ -40,6 +40,7 @@
   <body>
   <div class="wrapper">
     <div class="container">
+    <!-- header & background not showing up on edit page & delete page -->
       <header><center><img src="images/advlogo.jpg" alt="Adventure Tracker Header" class="img-responsive main-image"></center></header>
 
     <!-- Logout Link -->
@@ -49,7 +50,7 @@
 
     <!-- Flash Messages -->
         <% flash.keys.each do |type| %>
-        <center><strong><t style="color: red;"><%= flash[type] %></t></strong></center>
+        <strong><t style="color: red;"><%= flash[type] %></t></strong>
         <% end %>
 
     <!-- Other views info -->
