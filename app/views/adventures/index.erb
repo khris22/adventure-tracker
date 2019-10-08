@@ -20,7 +20,8 @@
 <label for="notes">Notes:</label>
 <textarea type="text" name="notes" id="notes" value= ""></textarea><br><br>
 
-<input type="submit" name="submit" id="submit" value="Submit">
+<input style="color: green;" type="submit" name="submit" id="submit" value="Submit"><br><br>
+<button style="height:20px;width:100px" type="submit" formaction="/wishlists">Add to Wishlist</button>
 </form></center><br><br>
 </div>
 
@@ -31,6 +32,16 @@
 
 <ul><% @user.adventures.each do |adventure| %>
 <li><h3><a href="/adventures/<%= adventure.id %>"><%= adventure.title %></h3></a><h4></h4><%=adventure.location%></h4></li>
+<% end %>
+</ul>
+</center>
+
+<h2>Wishlist</h2>
+<center>
+<p> You have a total of <t style="color: blue;"><%= @user.wishlists.length %></t> adventures in your wishlist! Get going!</p>
+
+<ul><% @user.wishlists.each do |wishlist| %>
+<li><h3><a href="/wishlists/<%= wishlist.id %>"><%= wishlist.title %></h3></a><h4></h4><%=wishlist.location%></h4></li>
 <% end %>
 </ul>
 </center>

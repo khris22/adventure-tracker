@@ -1,0 +1,27 @@
+<div class="edit page">
+<h2>Edit: <%= @wishlist.title %> </h2>
+
+<form method="post" action="/wishlists/<%= @wishlist.id %>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+<label for="title">Title:</label>
+<input type="text" name="title" id="title" value= "<%= @wishlist.title %>"><br>
+
+<label for="location">Location:</label>
+<input type="text" name="location" id="location" value= "<%= @wishlist.location %>"><br>
+
+<label for="activity">Activity:</label>
+<input type="text" name="activity" id="activity" value= "<%= @wishlist.activity %>"><br>
+
+<label for="companion">Companion:</label>
+<input type="text" name="companion" id="companion" value= "<%= @wishlist.companion %>"><br>
+
+<label for="notes">Notes:</label>
+<input type="text" name="notes" id="notes" value= "<%= @wishlist.notes %>"><br><br>
+
+<input type="submit" name="submit" id="submit" value="Update <%= @wishlist.title %> Wishlist"><br><br>
+</form>
+<!-- create a button that will submit this form to add as a new wishlist when done -->
+<p>Go back to <%= @wishlist.user.username %>'s <a href="/adventures">Homepage</a></p>
+
+</div>
