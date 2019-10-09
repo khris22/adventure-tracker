@@ -12,36 +12,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Need to debug stylesheet to work on all pages -->
     <link rel="stylesheet" href="/stylesheets/main.css" />
-        <style>
-        body {
-        background-image: url("images/mainpage.jpg");
-        background-color: lightblue;
-        background-repeat: no-repeat;
-        background-position: center center;
-        color: #333;
-        font-family: Sans-Serif;
-        line-height: 18px;
-      }
-
-        .wrapper {
-        background: #fff;
-        opacity: 0.9;
-        -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-        -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-        box-shadow: 0 0 10px rgba(0,0,0,.3);
-        margin: 16px auto;
-        max-width: 960px;
-        padding: 2.25%; /* 18px / 800px */
-        width: 85%;
-        height: auto;
-      }
-      </style>
   </head>
   <body>
   <div class="wrapper">
     <div class="container">
     <!-- header & background not showing up on edit page & delete page -->
-      <header><center><img src="images/advlogo.jpg" alt="Adventure Tracker Header" class="img-responsive main-image"></center></header>
+      <header><center><img src="/images/advlogo.jpg" alt="Adventure Tracker Header" class="img-responsive main-image"></center></header>
 
     <!-- Logout Link -->
         <% if logged_in? %>
