@@ -1,3 +1,13 @@
+# ADD NEW FEATURES
+- add checkbox for activity column (ex. hiking, camping, others etc)
+- dropdown for state
+- button on wishlist that tranfers it to adventures once it was done
+
+- password length, email format validation, .find_by_slug method
+- fix css styling and design
+- 
+
+
 # Custom User Validations    
     # validates :username, presence: {message: "Username cannot be blank"}
     # validates :username, uniqueness: {message: "This username is already taken!"}
@@ -43,8 +53,6 @@ password length - maxlength="8"
   #title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   from stackoverflow: downcase makes it lowercase. The strip makes sure there is no leading or trailing whitespace. The first gsub replaces spaces with hyphens. The second gsub removes all non-alpha non-dash non-underscore characters (note that this set is very close to \W but includes the dash as well, which is why it's spelled out here).
 
-
-
 # Add new features:
 View all the adventures:
 <ul>
@@ -73,3 +81,5 @@ View all the adventures:
             <a href="#" class="close">&times;</a>
           </div>
         <% end %>
+
+  
