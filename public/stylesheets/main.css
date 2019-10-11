@@ -14,6 +14,7 @@
   /* --- Welcome Page Styles --- */
   body {
     background-image: url("/images/mainpage.jpg");
+    background-attachment: fixed;
     background-color: #8bceab;
     background-repeat: no-repeat;
     background-position: center center;
