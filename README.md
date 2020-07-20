@@ -2,6 +2,8 @@
 
 ## Overview
 
+Demo: https://youtu.be/EeJbhx_hBT8
+
 Adventure Tracker is a Sinatra application that allows users who like doing outdoor activities to track all their adventures. To be able to use the site, the user must sign up first with a unique username, email and password. It will then redirect you to your homepage once you have successfully signed up. Only users who are logged in are able to create, edit and delete their own adventures.     
 
 ## Installation
